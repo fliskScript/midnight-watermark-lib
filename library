@@ -1,5 +1,5 @@
-local Library = {}
-function Library:NewText(Text)
+local _G.Main = {}
+function _G.Main:NewText(Text)
 	local ScreenGui = Instance.new("ScreenGui")
 	local background = Instance.new("Frame")
 	local name_of_script = Instance.new("TextLabel")
@@ -63,4 +63,4 @@ function Library:NewText(Text)
 	coroutine.wrap(KUZDI_fake_script)()	
 end
 
-return Library
+return _G.Main
