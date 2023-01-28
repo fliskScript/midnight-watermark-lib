@@ -1,5 +1,5 @@
-local _G.Main = {}
-function _G.Main:NewText(Text)
+local Library = {}
+function Library:New(Text)
 	local ScreenGui = Instance.new("ScreenGui")
 	local background = Instance.new("Frame")
 	local name_of_script = Instance.new("TextLabel")
@@ -24,7 +24,7 @@ function _G.Main:NewText(Text)
 	name_of_script.BorderSizePixel = 0
 	name_of_script.Size = UDim2.new(0, 170, 0, 35)
 	name_of_script.Font = Enum.Font.GothamBold
-	name_of_script.Text = ""
+	name_of_script.Text = Text.." | "..game.Players.LocalPlayer.Name
 	name_of_script.TextColor3 = Color3.fromRGB(255, 255, 255)
 	name_of_script.TextSize = 14.000
 	
@@ -56,11 +56,10 @@ function _G.Main:NewText(Text)
 	
 		local main = script.Parent
 		local text = main:WaitForChild("name_of_script")
-		text.Text = Text..game.Players.LocalPlayer.Name
 		main.Size = text.Size
 		main.Draggable = true
 	end
 	coroutine.wrap(KUZDI_fake_script)()	
 end
 
-return _G.Main
+return Library
