@@ -58,3 +58,4 @@ function library:Name(Text)
 	end
 	coroutine.wrap(KUZDI_fake_script)()	
 end
+return library
