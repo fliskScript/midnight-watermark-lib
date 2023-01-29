@@ -1,1 +1,61 @@
-xd
+local library = {}
+function library:AddText(Text)
+	local ScreenGui = Instance.new("ScreenGui")
+	local background = Instance.new("Frame")
+	local name_of_script = Instance.new("TextLabel")
+	local background_shadow_frame = Instance.new("Frame")
+	local background_shadow_image = Instance.new("ImageLabel")
+	
+	ScreenGui.Parent = game.CoreGui
+	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	
+	background.Name = "background"
+	background.Parent = ScreenGui
+	background.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+	background.BackgroundTransparency = 0.450
+	background.BorderSizePixel = 0
+	background.Position = UDim2.new(0.0241312739, 0, 0.0295275599, 0)
+	background.Size = UDim2.new(0, 170, 0, 37)
+	
+	name_of_script.Name = "name_of_script"
+	name_of_script.Parent = background
+	name_of_script.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	name_of_script.BackgroundTransparency = 1.000
+	name_of_script.BorderSizePixel = 0
+	name_of_script.Size = UDim2.new(0, 170, 0, 35)
+	name_of_script.Font = Enum.Font.GothamBold
+	name_of_script.Text = Text.." | "..game.Players.LocalPlayer.Name
+	name_of_script.TextColor3 = Color3.fromRGB(255, 255, 255)
+	name_of_script.TextSize = 14.000
+	
+	background_shadow_frame.Name = "background_shadow_frame"
+	background_shadow_frame.Parent = background
+	background_shadow_frame.BackgroundTransparency = 1.000
+	background_shadow_frame.BorderSizePixel = 0
+	background_shadow_frame.Size = UDim2.new(1, 0, 1, 0)
+	background_shadow_frame.ZIndex = 0
+	
+	background_shadow_image.Name = "background_shadow_image"
+	background_shadow_image.Parent = background_shadow_frame
+	background_shadow_image.AnchorPoint = Vector2.new(0.5, 0.5)
+	background_shadow_image.BackgroundTransparency = 1.000
+	background_shadow_image.BorderSizePixel = 0
+	background_shadow_image.Position = UDim2.new(0.5, 0, 0.5, 0)
+	background_shadow_image.Size = UDim2.new(1, 47, 1, 47)
+	background_shadow_image.ZIndex = 0
+	background_shadow_image.Image = "rbxassetid://6015897843"
+	background_shadow_image.ImageColor3 = Color3.fromRGB(12, 0, 42)
+	background_shadow_image.ImageTransparency = 0.500
+	background_shadow_image.ScaleType = Enum.ScaleType.Slice
+	background_shadow_image.SliceCenter = Rect.new(49, 49, 450, 450)
+	
+	local function KUZDI_fake_script()
+		local script = Instance.new('LocalScript', background)
+		local main = script.Parent
+		local text = main:WaitForChild("name_of_script")
+		main.Size = text.Size
+	end
+	coroutine.wrap(KUZDI_fake_script)()	
+end
+library:AddText("midnight")
+return library
